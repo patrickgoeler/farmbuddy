@@ -1,1 +1,5 @@
-<p>todo works!</p>
+<h1>To-Do List</h1>
+
+<div class="todo-container">
+    <nb-checkbox *ngFor="let item of todos" [checked]="item.checked">{{ item.title }}</nb-checkbox>
+</div>
