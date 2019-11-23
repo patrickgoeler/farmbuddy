@@ -17,6 +17,21 @@ nb-stepper {
     }
 }
 
+nb-select {
+    margin-bottom: 20px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 110px;
+    margin: 0 auto;
+    nb-checkbox {
+        margin-bottom: 10px;
+    }
+}
+
 .mobile-step-count {
     @media only screen and (min-width: 1000px) {
         display: none;
@@ -66,4 +81,36 @@ nb-stepper {
 
 .card-button:hover {
     border: 5px solid nb-theme(color-primary-500);
+}
+
+.loading-gif {
+    width: 300px;
+    border-radius: 50%;
+}
+
+.recommendation-card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
+    grid-gap: 10px;
+    // grid-auto-flow: dense;
+    margin-bottom: 20px;
+}
+
+.recommendation-card {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    nb-card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.recommendation-selected {
+    border: 5px solid green;
 }

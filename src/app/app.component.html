@@ -1,13 +1,13 @@
 <nb-layout>
-    <nb-layout-header fixed *ngIf="!navService.hideFrame">
-        <span>Farmbuddy</span>
+    <nb-layout-header fixed *ngIf="!hideFrame">
+        <span class="app-title">Farmbuddy</span>
         <span class="flex-grow-1"></span>
-        <button nbButton status="primary" (click)="sidebar.toggle()">
+        <button nbButton status="primary" (click)="sideContent.toggle()">
             <nb-icon icon="menu-outline"></nb-icon>Menu
         </button>
     </nb-layout-header>
 
-    <nb-sidebar responsive right #sidebar *ngIf="!navService.hideFrame">
+    <nb-sidebar #sideContent responsive right [class.hidden]="hideFrame">
         <nb-sidebar-header>Header</nb-sidebar-header>
         <nb-menu [items]="menuItems"></nb-menu>
         <nb-sidebar-footer>Footer</nb-sidebar-footer>
@@ -17,7 +17,7 @@
         <router-outlet></router-outlet>
     </nb-layout-column>
 
-    <nb-layout-footer fixed *ngIf="!navService.hideFrame">
+    <nb-layout-footer fixed *ngIf="!hideFrame">
         <!-- Insert footer here -->
     </nb-layout-footer>
 </nb-layout>

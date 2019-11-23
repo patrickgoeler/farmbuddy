@@ -1,10 +1,18 @@
-import { Injectable } from "@angular/core"
+import { Injectable, ChangeDetectorRef } from "@angular/core"
 
 @Injectable({
     providedIn: "root",
 })
 export class NavService {
-    public hideFrame = false
+    private hideFrame = true
 
     constructor() {}
+
+    setHideFrame(value: boolean) {
+        this.hideFrame = value
+    }
+
+    getHideFrame(): boolean {
+        return this.hideFrame
+    }
 }

@@ -1,10 +1,10 @@
-<ng-container *ngIf="false">
+<ng-container *ngIf="!showStepper">
     <img src="/assets/farmbuddy.svg" class="logo-image" />
     <h1>Farmbuddy</h1>
     <button nbButton hero size="giant" (click)="showStepper = true">Los Geht's</button>
 </ng-container>
 
-<nb-stepper orientation="horizontal" linear="false" *ngIf="true" #stepper>
+<nb-stepper orientation="horizontal" linear="false" *ngIf="showStepper" #stepper>
     <div class="header test">Hello header</div>
     <nb-step label="Account">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
@@ -20,7 +20,7 @@
     </nb-step>
     <nb-step label="Ort">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
-        <h4>Wo kommen die Pflanzen hin?</h4>
+        <h4>Wo sollen die Pflanzen stehen?</h4>
 
         <div class="card-button-container">
             <!-- BIG BUTTONS -->
@@ -51,13 +51,13 @@
                 </nb-card-body>
             </nb-card>
 
-            <nb-card class="card-button" (click)="select('location', 'medium')">
+            <nb-card class="card-button" (click)="select('light', 'medium')">
                 <nb-card-body>
                     <img src="assets/sun-50.png" />
                     Ausreichend Sonne
                 </nb-card-body>
             </nb-card>
-            <nb-card class="card-button" (click)="select('location', 'big')">
+            <nb-card class="card-button" (click)="select('light', 'big')">
                 <nb-card-body>
                     <img src="assets/sun-100.png" />
                     Viel Sonne
@@ -73,20 +73,20 @@
             <nb-card class="card-button" (click)="select('plantsize', 'small')">
                 <nb-card-body>
                     <img src="assets/plant-small.png" />
-                    Kleine Pflanzen
+                    z.B. Küchenkräuter
                 </nb-card-body>
             </nb-card>
 
             <nb-card class="card-button" (click)="select('plantsize', 'medium')">
                 <nb-card-body>
                     <img src="assets/plant-big.png" />
-                    Mittlere Pflanzen
+                    z.B. Kopfsalat
                 </nb-card-body>
             </nb-card>
             <nb-card class="card-button" (click)="select('plantsize', 'big')">
                 <nb-card-body>
                     <img src="assets/plant-big-small.png" />
-                    Große Pflanzen
+                    z.B. Tomaten
                 </nb-card-body>
             </nb-card>
         </div>
@@ -94,33 +94,59 @@
     <nb-step label="Vorlieben">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
         <h4>Anbau-Vorlieben</h4>
-        <nb-select multiple hero status="primary" size="giant" placeholder="Multiple Select">
-            <nb-option value="1">Option 1</nb-option>
-            <nb-option value="2">Option 2</nb-option>
-            <nb-option value="3">Option 3</nb-option>
-            <nb-option value="4">Option 4</nb-option>
+        <nb-select
+            (selectedChange)="selectedChanged($event)"
+            multiple
+            hero
+            status="primary"
+            size="giant"
+            placeholder="Lieblingspflanzen"
+            #vorliebeSelect
+        >
+            <nb-option *ngFor="let item of vorliebeItems" [value]="item.value" [disabled]="item.disabled">{{
+                item.title
+            }}</nb-option>
         </nb-select>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton disabled nbStepperNext>next</button>
+        <br />
+        <button nbButton nbStepperNext>Weiter</button>
     </nb-step>
     <nb-step label="Equipment">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
-        <h4>Step content #4</h4>
-        <p class="lorem">
-            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle, my
-            shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
-        </p>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton disabled nbStepperNext>next</button>
+        <h4>Was für Equipment besitzt du bereits?</h4>
+        <div class="checkbox-container">
+            <nb-checkbox (checkedChange)="equipmentToggle($event, 'schaufel')">Schaufel</nb-checkbox>
+            <nb-checkbox (checkedChange)="equipmentToggle($event, 'blumentoepfe')">Blumentöpfe</nb-checkbox>
+            <nb-checkbox (checkedChange)="equipmentToggle($event, 'rankstange')">Rankstangen</nb-checkbox>
+        </div>
+        <button nbButton nbStepperNext (click)="timeoutLoading()">Weiter</button>
     </nb-step>
     <nb-step label="Empfehlung">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
-        <h4>Step content #4</h4>
-        <p class="lorem">
-            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle, my
-            shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
-        </p>
-        <button nbButton nbStepperPrevious>prev</button>
-        <button nbButton disabled nbStepperNext>next</button>
+        <ng-container *ngIf="loading">
+            <img src="assets/growing-plant.gif" class="loading-gif" />
+            <p>Einen Moment, wir treffen die perfekte Auswahl für dich...</p>
+            <br />
+        </ng-container>
+        <ng-container *ngIf="!loading">
+            <h4>Du hast es geschafft!</h4>
+            <p>
+                Aufgrund deiner Eingaben, Jahreszeit und Wettervorhersagen empfehlen wir dir folgende Pflanzen
+                anzubauen. Wähle deinen Favorit aus und schon kann es losgehen.
+            </p>
+            <div class="recommendation-card-wrapper">
+                <nb-card
+                    class="recommendation-card"
+                    *ngFor="let item of recommendations"
+                    [class.recommendation-selected]="item.selected"
+                    (click)="selectRecommendation(item)"
+                >
+                    <nb-card-body>
+                        <img [src]="item.img" />
+                        <div>{{ item.text }}</div>
+                    </nb-card-body>
+                </nb-card>
+            </div>
+            <button nbButton nbStepperNext (click)="finish()">Los Geht's</button>
+        </ng-container>
     </nb-step>
 </nb-stepper>

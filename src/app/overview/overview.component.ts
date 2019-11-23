@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core"
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core"
 import { NavService } from "../nav.service"
 
 @Component({
@@ -10,6 +10,6 @@ export class OverviewComponent implements OnInit {
     constructor(private navService: NavService) {}
 
     ngOnInit() {
-        this.navService.hideFrame = false
+        this.navService.setHideFrame(false)
     }
 }

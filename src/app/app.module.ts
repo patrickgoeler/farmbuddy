@@ -16,14 +16,18 @@ import {
     NbInputModule,
     NbCardModule,
     NbSelectModule,
+    NbCheckboxModule,
 } from "@nebular/theme"
 import { NbEvaIconsModule } from "@nebular/eva-icons"
 import { IntroComponent } from "./intro/intro.component"
 import { OverviewComponent } from "./overview/overview.component"
-import { FormsModule } from "@angular/forms"
+import { FormsModule } from "@angular/forms";
+import { ShoppingComponent } from './shopping/shopping.component';
+import { TodoComponent } from './todo/todo.component';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
-    declarations: [AppComponent, IntroComponent, OverviewComponent],
+    declarations: [AppComponent, IntroComponent, OverviewComponent, ShoppingComponent, TodoComponent, ProfileComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -40,6 +44,7 @@ import { FormsModule } from "@angular/forms"
         NbStepperModule,
         NbCardModule,
         NbSelectModule,
+        NbCheckboxModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
