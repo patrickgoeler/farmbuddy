@@ -1,7 +1,7 @@
 import { Component, ChangeDetectorRef, OnInit } from "@angular/core"
 import { NbMenuItem } from "@nebular/theme"
 import { NavService } from "./nav.service"
-import { Router, NavigationStart, NavigationEnd } from "@angular/router"
+import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from "@angular/router"
 
 @Component({
     selector: "app-root",
@@ -33,11 +33,10 @@ export class AppComponent {
             link: "/profile",
         },
     ]
-    constructor(public navService: NavService, private router: Router) {
+    constructor(public navService: NavService, private router: Router, private r: ActivatedRoute) {
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-                console.log(event)
-                if (event.url === "/") {
+                if (event.url.includes("step") || event.url === "/") {
                     this.hideFrame = true
                 } else {
                     this.hideFrame = false

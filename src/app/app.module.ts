@@ -17,6 +17,7 @@ import {
     NbCardModule,
     NbSelectModule,
     NbCheckboxModule,
+    NbDialogModule,
 } from "@nebular/theme"
 import { NbEvaIconsModule } from "@nebular/eva-icons"
 import { IntroComponent } from "./intro/intro.component"
@@ -25,9 +26,19 @@ import { FormsModule } from "@angular/forms"
 import { ShoppingComponent } from "./shopping/shopping.component"
 import { TodoComponent } from "./todo/todo.component"
 import { ProfileComponent } from "./profile/profile.component"
+import { config } from "process"
+import { DialogComponent } from "./dialog/dialog.component"
 
 @NgModule({
-    declarations: [AppComponent, IntroComponent, OverviewComponent, ShoppingComponent, TodoComponent, ProfileComponent],
+    declarations: [
+        AppComponent,
+        IntroComponent,
+        OverviewComponent,
+        ShoppingComponent,
+        TodoComponent,
+        ProfileComponent,
+        DialogComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
@@ -45,8 +56,10 @@ import { ProfileComponent } from "./profile/profile.component"
         NbCardModule,
         NbSelectModule,
         NbCheckboxModule,
+        NbDialogModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent],
+    entryComponents: [DialogComponent],
 })
 export class AppModule {}
