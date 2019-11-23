@@ -1,8 +1,23 @@
-@import 'themes';
+@import "themes";
 
-@import '~@nebular/theme/styles/globals';
+@import "~@nebular/theme/styles/globals";
 
 @include nb-install() {
-  @include nb-theme-global();
-};
+    @include nb-theme-global();
+}
 /* You can add global styles to this file, and also import other style files */
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+nb-sidebar.compacted nb-icon {
+    margin: 0 !important;
+}
+
+nb-sidebar.compacted nb-sidebar-header {
+    display: none;
+}
+
+nb-sidebar.compacted nb-sidebar-footer {
+    display: none;
+}

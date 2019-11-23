@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core"
+import { NavService } from "../nav.service"
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+    selector: "app-overview",
+    templateUrl: "./overview.component.html",
+    styleUrls: ["./overview.component.scss"],
 })
 export class OverviewComponent implements OnInit {
+    constructor(private navService: NavService) {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        this.navService.hideFrame = false
+    }
 }

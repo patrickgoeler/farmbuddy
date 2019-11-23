@@ -5,7 +5,7 @@ import { OverviewComponent } from "./overview/overview.component"
 
 const routes: Routes = [
     {
-        path: "intro",
+        path: "",
         component: IntroComponent,
     },
     {

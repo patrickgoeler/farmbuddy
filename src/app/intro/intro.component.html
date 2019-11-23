@@ -1,1 +1,126 @@
-<p>intro works!</p>
+<ng-container *ngIf="false">
+    <img src="/assets/farmbuddy.svg" class="logo-image" />
+    <h1>Farmbuddy</h1>
+    <button nbButton hero size="giant" (click)="showStepper = true">Los Geht's</button>
+</ng-container>
+
+<nb-stepper orientation="horizontal" linear="false" *ngIf="true" #stepper>
+    <div class="header test">Hello header</div>
+    <nb-step label="Account">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Persönliche Daten</h4>
+        <div class="input-container">
+            <input nbInput type="text" placeholder="Name..." />
+            <input nbInput type="email" placeholder="E-Mail..." />
+            <input nbInput type="password" placeholder="Passwort..." />
+        </div>
+        <!-- <button nbButton disabled nbStepperNext>prev</button> -->
+        <button nbButton status="basic">Login</button>
+        <button nbButton nbStepperNext>Registrieren</button>
+    </nb-step>
+    <nb-step label="Ort">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Wo kommen die Pflanzen hin?</h4>
+
+        <div class="card-button-container">
+            <!-- BIG BUTTONS -->
+            <nb-card class="card-button" (click)="select('location', 'indoor')">
+                <nb-card-body>
+                    <img src="assets/indoor-plants.svg" />
+                    Drinnen
+                </nb-card-body>
+            </nb-card>
+
+            <nb-card class="card-button" (click)="select('location', 'outdoor')">
+                <nb-card-body>
+                    <img src="assets/outdoor-plants.svg" />
+                    Draußen
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </nb-step>
+    <nb-step label="Licht">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Lichtverhältnisse</h4>
+        <div class="card-button-container">
+            <!-- BIG BUTTONS -->
+            <nb-card class="card-button" (click)="select('light', 'small')">
+                <nb-card-body>
+                    <img src="assets/sun-25.png" />
+                    Wenig Sonne
+                </nb-card-body>
+            </nb-card>
+
+            <nb-card class="card-button" (click)="select('location', 'medium')">
+                <nb-card-body>
+                    <img src="assets/sun-50.png" />
+                    Ausreichend Sonne
+                </nb-card-body>
+            </nb-card>
+            <nb-card class="card-button" (click)="select('location', 'big')">
+                <nb-card-body>
+                    <img src="assets/sun-100.png" />
+                    Viel Sonne
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </nb-step>
+    <nb-step label="Platz">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Wie viel Platz hast du?</h4>
+        <div class="card-button-container">
+            <!-- BIG BUTTONS -->
+            <nb-card class="card-button" (click)="select('plantsize', 'small')">
+                <nb-card-body>
+                    <img src="assets/plant-small.png" />
+                    Kleine Pflanzen
+                </nb-card-body>
+            </nb-card>
+
+            <nb-card class="card-button" (click)="select('plantsize', 'medium')">
+                <nb-card-body>
+                    <img src="assets/plant-big.png" />
+                    Mittlere Pflanzen
+                </nb-card-body>
+            </nb-card>
+            <nb-card class="card-button" (click)="select('plantsize', 'big')">
+                <nb-card-body>
+                    <img src="assets/plant-big-small.png" />
+                    Große Pflanzen
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </nb-step>
+    <nb-step label="Vorlieben">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Anbau-Vorlieben</h4>
+        <nb-select multiple hero status="primary" size="giant" placeholder="Multiple Select">
+            <nb-option value="1">Option 1</nb-option>
+            <nb-option value="2">Option 2</nb-option>
+            <nb-option value="3">Option 3</nb-option>
+            <nb-option value="4">Option 4</nb-option>
+        </nb-select>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+    </nb-step>
+    <nb-step label="Equipment">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Step content #4</h4>
+        <p class="lorem">
+            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle, my
+            shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+    </nb-step>
+    <nb-step label="Empfehlung">
+        <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
+        <h4>Step content #4</h4>
+        <p class="lorem">
+            Lorizzle ipsum dolizzle stuff fizzle, consectetuer adipiscing break it down. Nullizzle sapien velizzle, my
+            shizz pimpin', shizzle my nizzle crocodizzle shut the shizzle up, gravida vizzle, dang.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton disabled nbStepperNext>next</button>
+    </nb-step>
+</nb-stepper>
