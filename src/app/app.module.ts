@@ -21,10 +21,10 @@ import {
 import { NbEvaIconsModule } from "@nebular/eva-icons"
 import { IntroComponent } from "./intro/intro.component"
 import { OverviewComponent } from "./overview/overview.component"
-import { FormsModule } from "@angular/forms";
-import { ShoppingComponent } from './shopping/shopping.component';
-import { TodoComponent } from './todo/todo.component';
-import { ProfileComponent } from './profile/profile.component'
+import { FormsModule } from "@angular/forms"
+import { ShoppingComponent } from "./shopping/shopping.component"
+import { TodoComponent } from "./todo/todo.component"
+import { ProfileComponent } from "./profile/profile.component"
 
 @NgModule({
     declarations: [AppComponent, IntroComponent, OverviewComponent, ShoppingComponent, TodoComponent, ProfileComponent],
@@ -33,7 +33,7 @@ import { ProfileComponent } from './profile/profile.component'
         AppRoutingModule,
         BrowserAnimationsModule,
         FormsModule,
-        NbThemeModule.forRoot({ name: "default" }),
+        NbThemeModule.forRoot({ name: "custom-theme" }),
         NbLayoutModule,
         NbButtonModule,
         NbSidebarModule.forRoot(),
