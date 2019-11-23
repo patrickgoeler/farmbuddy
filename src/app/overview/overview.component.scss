@@ -8,14 +8,90 @@
 .premium-card {
     height: 300px;
     grid-column: 1 / span 2;
+    background-image: url("/assets/sensor.jpg");
+    background-size: cover;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+
+    span {
+        flex-grow: 1;
+    }
+
+    div {
+        width: 100%;
+        height: 50px;
+        background: white;
+        display: flex;
+        align-items: center;
+        padding: 5px 15px;
+        h5 {
+            // color: white;
+            margin: 0;
+        }
+    }
 }
 
 .top-tipps {
     // grid-area: 1 / 3 / 1 / 4;
+    display: flex;
+    flex-direction: column;
+    .image-container {
+        width: 100%;
+        height: 100px;
+        background-image: url("/assets/garden.jpg");
+        background-size: cover;
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat;
+    }
+
+    .profile {
+        margin-top: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        img {
+            width: 50px;
+            border-radius: 50%;
+        }
+        h6 {
+            margin: 0;
+            font-weight: normal;
+        }
+        nb-icon {
+            margin-left: 5px;
+        }
+    }
+    h5 {
+        margin: 15px;
+        margin-bottom: 5px;
+    }
+    p {
+        margin: 15px;
+        margin-top: 0;
+        font-size: x-small;
+    }
 }
 
 .video {
     // grid-area: 2 / 1 / 2 / 4;
     // grid-column: 1 / last-line;
     grid-column: 1 / -1;
+    // background-image: url("/assets/plant.jpg");
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+        url("/assets/plant.jpg");
+    background-size: cover;
+    background-position: right; /* Center the image */
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    nb-icon {
+        width: 5rem;
+        height: 5rem;
+    }
 }
