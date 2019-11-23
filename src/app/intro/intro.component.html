@@ -1,10 +1,10 @@
 <ng-container *ngIf="!showStepper">
     <img src="/assets/farmbuddy.svg" class="logo-image" />
     <h1>Farmbuddy</h1>
-    <button nbButton hero size="giant" (click)="showStepper = true">Los Geht's</button>
+    <button nbButton hero size="giant" (click)="enableStepper()">Los Geht's</button>
 </ng-container>
 
-<nb-stepper orientation="horizontal" linear="false" *ngIf="showStepper" #stepper>
+<nb-stepper orientation="horizontal" linear="true" *ngIf="showStepper" #stepper>
     <div class="header test">Hello header</div>
     <nb-step label="Account">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
@@ -16,7 +16,7 @@
         </div>
         <!-- <button nbButton disabled nbStepperNext>prev</button> -->
         <button nbButton status="basic">Login</button>
-        <button nbButton nbStepperNext>Registrieren</button>
+        <button nbButton (click)="goNext()">Registrieren</button>
     </nb-step>
     <nb-step label="Ort">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
@@ -47,20 +47,20 @@
             <nb-card class="card-button" (click)="select('light', 'small')">
                 <nb-card-body>
                     <img src="assets/sun-25.png" />
-                    Wenig Sonne
+                    Schattig
                 </nb-card-body>
             </nb-card>
 
             <nb-card class="card-button" (click)="select('light', 'medium')">
                 <nb-card-body>
                     <img src="assets/sun-50.png" />
-                    Ausreichend Sonne
+                    Halb-Schattig
                 </nb-card-body>
             </nb-card>
             <nb-card class="card-button" (click)="select('light', 'big')">
                 <nb-card-body>
                     <img src="assets/sun-100.png" />
-                    Viel Sonne
+                    Sonnig
                 </nb-card-body>
             </nb-card>
         </div>
@@ -73,7 +73,7 @@
             <nb-card class="card-button" (click)="select('plantsize', 'small')">
                 <nb-card-body>
                     <img src="assets/plant-small.png" />
-                    z.B. Küchenkräuter
+                    z.B. Kräuter
                 </nb-card-body>
             </nb-card>
 
@@ -108,7 +108,7 @@
             }}</nb-option>
         </nb-select>
         <br />
-        <button nbButton nbStepperNext>Weiter</button>
+        <button nbButton (click)="goNext()">Weiter</button>
     </nb-step>
     <nb-step label="Equipment">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
@@ -118,7 +118,7 @@
             <nb-checkbox (checkedChange)="equipmentToggle($event, 'blumentoepfe')">Blumentöpfe</nb-checkbox>
             <nb-checkbox (checkedChange)="equipmentToggle($event, 'rankstange')">Rankstangen</nb-checkbox>
         </div>
-        <button nbButton nbStepperNext (click)="timeoutLoading()">Weiter</button>
+        <button nbButton (click)="timeoutLoading()">Weiter</button>
     </nb-step>
     <nb-step label="Empfehlung">
         <div class="mobile-step-count">{{ stepper.selectedIndex + 1 }} / 7</div>
@@ -142,7 +142,17 @@
                 >
                     <nb-card-body>
                         <img [src]="item.img" />
+                        <h5>{{ item.title }}</h5>
                         <div>{{ item.text }}</div>
+                        <div>
+                            Schwierigkeitsgrad:
+                            <nb-icon
+                                *ngFor="let i of item.skillLevel"
+                                [status]="i > 0 ? 'basic' : ''"
+                                icon="settings-outline"
+                            ></nb-icon>
+                        </div>
+                        <button nbButton status="basic" (click)="openDialog(item)">Mehr Infos</button>
                     </nb-card-body>
                 </nb-card>
             </div>
