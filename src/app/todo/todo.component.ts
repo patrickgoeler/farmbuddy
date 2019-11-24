@@ -8,24 +8,16 @@ import { Component, OnInit } from "@angular/core"
 export class TodoComponent implements OnInit {
     todos = [
         {
-            title: "Blumenkübel kaufen",
+            title: "Einkaufsliste abarbeiten",
             checked: true,
+            experienceGain: 50,
+            exp: "big",
         },
         {
-            title: "Samen kaufen",
+            title: "Vorgesehenen Platz sauber machen",
             checked: false,
-        },
-        {
-            title: "Schaufel kaufen",
-            checked: false,
-        },
-        {
-            title: "Erde kaufen",
-            checked: false,
-        },
-        {
-            title: "Gießkanne kaufen",
-            checked: true,
+            experienceGain: 20,
+            exp: "small",
         },
     ]
     constructor() {}
