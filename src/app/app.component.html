@@ -1,5 +1,6 @@
 <nb-layout>
     <nb-layout-header fixed *ngIf="!hideFrame">
+        <img class="logo" src="assets/farmbuddy.svg" />
         <span class="app-title">Farmbuddy</span>
         <span class="flex-grow-1"></span>
         <button nbButton status="primary" (click)="sideContent.toggle()">
@@ -19,5 +20,6 @@
 
     <nb-layout-footer fixed *ngIf="!hideFrame">
         <!-- Insert footer here -->
+        © Farmbuddy
     </nb-layout-footer>
 </nb-layout>

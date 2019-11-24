@@ -19,6 +19,7 @@ import {
     NbCheckboxModule,
     NbDialogModule,
     NbTooltipModule,
+    NbProgressBarModule,
 } from "@nebular/theme"
 import { NbEvaIconsModule } from "@nebular/eva-icons"
 import { IntroComponent } from "./intro/intro.component"
@@ -59,6 +60,7 @@ import { DialogComponent } from "./dialog/dialog.component"
         NbCheckboxModule,
         NbDialogModule.forRoot(),
         NbTooltipModule,
+        NbProgressBarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
