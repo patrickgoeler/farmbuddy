@@ -1,3 +1,11 @@
+.super-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
 .shopping-container {
     display: flex;
     flex-direction: column;
@@ -5,6 +13,7 @@
 }
 
 nb-checkbox {
+    margin-bottom: 5px;
     ::ng-deep .custom-checkbox {
         width: 1.5rem;
         height: 1.5rem;
@@ -21,7 +30,8 @@ nb-checkbox {
 }
 
 .maps-card {
-    grid-column: 1 / span 2;
+    padding: 20px;
+    margin-top: 20px;
     background-image: url("/assets/maps.png");
     background-size: cover;
     background-position: center; /* Center the image */
@@ -55,6 +65,7 @@ nb-checkbox {
     background-size: cover;
     background-position: center; /* Center the image */
     background-repeat: no-repeat;
+    margin-top: 20px;
 
     display: flex;
     flex-direction: column;

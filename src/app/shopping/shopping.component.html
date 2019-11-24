@@ -1,25 +1,26 @@
-<h1>Einkaufsliste</h1>
-
-<div class="shopping-container">
-    <nb-checkbox *ngFor="let item of shopping_list" [checked]="item.checked">{{ item.title }} </nb-checkbox>
-</div>
-<nb-card class="maps-card">
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <div class="text-container">
-        <button nbButton class="losButton">&nbsp; &nbsp;Bring mich zu Hornbach&nbsp; &nbsp;</button>
+<div class="super-wrapper">
+    <div class="shopping-container">
+        <h1>Einkaufsliste</h1>
+        <nb-checkbox *ngFor="let item of shopping_list" [checked]="item.checked">{{ item.title }} </nb-checkbox>
     </div>
-    <p></p>
-</nb-card>
+    <nb-card class="maps-card">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div class="text-container">
+            <button nbButton class="losButton">&nbsp; &nbsp;Bring mich zu Hornbach&nbsp; &nbsp;</button>
+        </div>
+        <p></p>
+    </nb-card>
+</div>
 <nb-card class="bundle-card">
     <p></p>
     <p></p>
     <p></p>
-    <button nbButton class="bundleKaufButton">&nbsp; &nbsp;Mit dem bundle 20% sparen &nbsp; &nbsp;</button>
+    <button nbButton size="giant" class="bundleKaufButton">&nbsp; &nbsp;Jetzt Bundle kaufen &nbsp; &nbsp;</button>
     <p></p>
     <p></p>
 </nb-card>
