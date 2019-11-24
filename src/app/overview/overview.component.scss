@@ -3,10 +3,12 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: auto;
     grid-gap: 10px;
+    nb-card {
+        height: 100%;
+    }
 }
 
 .premium-card {
-    height: 300px;
     grid-column: 1 / span 2;
     background-image: url("/assets/sensor.jpg");
     background-size: cover;
@@ -15,21 +17,28 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    span {
-        // flex-grow: 1;
-    }
-
-    div {
-        width: 100%;
-        height: 100%;
-        background: white;
+    .premium-card-content {
+        img {
+            width: 33%;
+        }
+        width: 80%;
+        border-radius: 20px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.7);
         display: flex;
         align-items: center;
-        padding: 5px 15px;
+        justify-content: center;
+        flex-wrap: wrap;
         h5 {
             // color: white;
             margin: 0;
+        }
+        .text-container {
+            margin: 0 auto;
+            text-align: center;
         }
     }
 }
@@ -39,6 +48,7 @@
     display: flex;
     flex-direction: column;
     .image-container {
+        flex-grow: 1;
         width: 100%;
         height: 100px;
         background-image: url("/assets/garden.jpg");
@@ -68,7 +78,6 @@
     }
     h5 {
         margin: 15px;
-        margin-bottom: 5px;
     }
     p {
         margin: 15px;
@@ -90,7 +99,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 600px !important;
     img {
         width: 5rem;
         height: 5rem;
