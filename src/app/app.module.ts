@@ -18,6 +18,7 @@ import {
     NbSelectModule,
     NbCheckboxModule,
     NbDialogModule,
+    NbTooltipModule,
 } from "@nebular/theme"
 import { NbEvaIconsModule } from "@nebular/eva-icons"
 import { IntroComponent } from "./intro/intro.component"
@@ -57,6 +58,7 @@ import { DialogComponent } from "./dialog/dialog.component"
         NbSelectModule,
         NbCheckboxModule,
         NbDialogModule.forRoot(),
+        NbTooltipModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
