@@ -33,30 +33,18 @@ nb-checkbox {
     justify-content: center;
     // width: 45%;
 
-    .text-container {
+    .losButton {
         img {
             width: 33%;
         }
-        width: 80%;
         border-radius: 20px;
         padding: 8px;
-        background: rgba(255, 255, 255, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
-        text-align: center;
-        h5 {
-            // color: white;
-            margin: 0;
-        }
         .text-container {
             margin: 0 auto;
             text-align: center;
-        }
-
-        .losButton {
-            margin-left: 10px;
         }
     }
 }
